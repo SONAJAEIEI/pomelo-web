@@ -13,6 +13,7 @@ function App() {
       if (liff.isLoggedIn()) {
         const profile = await liff.getProfile()
         console.log('LINE User:', profile)
+        setLineProfile(profile)
       } else {
         console.log('LINE user is not logged in')
       }
@@ -29,6 +30,7 @@ function App() {
   const [analyzing, setAnalyzing] = useState(false)
   const [aiResult, setAiResult] = useState(null)
   const [selectedAlert, setSelectedAlert] = useState(null)
+  const [lineProfile, setLineProfile] = useState(null)
 
   const fileInputRef = useRef(null)
 
