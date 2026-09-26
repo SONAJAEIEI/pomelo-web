@@ -5,15 +5,22 @@ import './App.css'
 function App() {
   
     useEffect(() => {
-    liff
-      .init({ liffId: '2011528910-NCBj8yBl' })
-      .then(() => {
-        console.log('LIFF initialized successfully')
-      })
-      .catch((error) => {
-        console.error('LIFF initialization failed:', error)
-      })
-  }, [])
+  liff
+    .init({ liffId: '2011528910-NCBj8yBl' })
+    .then(async () => {
+      console.log('LIFF initialized successfully')
+
+      if (liff.isLoggedIn()) {
+        const profile = await liff.getProfile()
+        console.log('LINE User:', profile)
+      } else {
+        console.log('LINE user is not logged in')
+      }
+    })
+    .catch((error) => {
+      console.error('LIFF initialization failed:', error)
+    })
+}, [])
 
   const [activePage, setActivePage] = useState('home')
   const [monitorMode, setMonitorMode] = useState('scan')
