@@ -1,7 +1,20 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
+import liff from '@line/liff'
 import './App.css'
 
 function App() {
+  
+    useEffect(() => {
+    liff
+      .init({ liffId: '2011528910-NCBj8yBl' })
+      .then(() => {
+        console.log('LIFF initialized successfully')
+      })
+      .catch((error) => {
+        console.error('LIFF initialization failed:', error)
+      })
+  }, [])
+
   const [activePage, setActivePage] = useState('home')
   const [monitorMode, setMonitorMode] = useState('scan')
   const [selectedCamera, setSelectedCamera] = useState(null)
