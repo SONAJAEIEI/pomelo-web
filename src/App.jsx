@@ -749,7 +749,14 @@ function App() {
           <div>
             <p className="eyebrow">SMART AGRICULTURE</p>
             <h1>Pomelo Garden</h1>
-            <p className="location">สวนส้มโอ • นครปฐม</p>
+
+          {lineProfile && (
+          <p className="line-user">
+         👋 สวัสดี, {lineProfile.displayName}
+          </p>
+          )}
+
+          <p className="location">สวนส้มโอ • นครปฐม</p>
           </div>
         </button>
 
